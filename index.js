@@ -8,8 +8,9 @@ const PORT = 3000;
 // 템플릿 엔진을 ejs로 설정
 app.set("view engine", "ejs");
 
+// "/"" URL 로 get 요청 시 views/hello.ejs 파일을 HTML 형태로 렌더링해 응답으로 반환
 app.get("/", (req, res) => {
-  res.render("hello.ejs");
+  res.render("hello.ejs", { clientAddr: req.socket.address().address });
 });
 
 // 서버 실행
